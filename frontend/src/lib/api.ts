@@ -8,7 +8,7 @@ import {
   DashboardStats,
 } from "./types";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "/api/v1";
 
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   const res = await fetch(url, {
@@ -117,6 +117,9 @@ export const api = {
   },
 
   async checkHealth(): Promise<{ status: string; version: string; service: string }> {
-    return fetchJson(`http://localhost:8000/api/health`);
+    const healthUrl = API_BASE.startsWith("http")
+      ? API_BASE.replace(/\/api\/v1\/?$/, "/api/health")
+      : "/api/health";
+    return fetchJson(healthUrl);
   },
 };
