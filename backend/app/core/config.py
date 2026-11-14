@@ -29,12 +29,14 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "repomind-secret-key-development-minimum-32-chars"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
     CORS_ORIGINS: List[str] = [
+        "http://localhost:4200",
+        "http://127.0.0.1:4200",
+        "http://0.0.0.0:4200",
+        "http://localhost:9000",
+        "http://127.0.0.1:9000",
+        "http://0.0.0.0:9000",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-        "http://0.0.0.0:3000",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://0.0.0.0:8000",
     ]
     
     # GitHub Integration

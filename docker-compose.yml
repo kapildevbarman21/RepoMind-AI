@@ -48,7 +48,7 @@ services:
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     ports:
-      - "8000:8000"
+      - "9000:8000"
     depends_on:
       postgres:
         condition: service_healthy
@@ -65,7 +65,7 @@ services:
       BACKEND_URL: http://backend:8000
       NEXT_PUBLIC_API_URL: /api/v1
     ports:
-      - "3000:3000"
+      - "4200:3000"
     depends_on:
       - backend
 
