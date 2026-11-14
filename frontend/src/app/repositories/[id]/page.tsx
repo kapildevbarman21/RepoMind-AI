@@ -43,6 +43,7 @@ export default function RepoOverviewAndCodeBrowserPage({
         handleSelectFile(data[0]);
       }
     }).catch(console.error);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repoId]);
 
   const handleSelectFile = async (file: FileItem) => {

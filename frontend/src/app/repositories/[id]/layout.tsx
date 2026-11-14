@@ -56,6 +56,7 @@ export default function RepoDetailLayout({
     }, 3000);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repoId]);
 
   const handleReindex = async () => {
@@ -64,7 +65,7 @@ export default function RepoDetailLayout({
     try {
       const updated = await api.reindexRepository(repoId);
       setRepo(updated);
-    } catch (err) {
+    } catch {
       alert("Failed to trigger re-index");
     } finally {
       setReindexing(false);

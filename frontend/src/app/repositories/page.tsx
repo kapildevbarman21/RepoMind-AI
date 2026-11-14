@@ -44,7 +44,7 @@ export default function RepositoriesPage() {
     try {
       await api.deleteRepository(id);
       setRepos((prev) => prev.filter((r) => r.id !== id));
-    } catch (err) {
+    } catch {
       alert("Failed to delete repository.");
     } finally {
       setDeletingId(null);
