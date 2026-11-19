@@ -2,10 +2,12 @@ services:
   - type: web
     name: repomind-backend
     env: docker
+    dockerContext: .
     dockerfilePath: ./docker/Dockerfile.backend
     plan: free
     region: oregon
     autoDeploy: true
+    healthCheckPath: /api/health
     envVars:
       - key: ENVIRONMENT
         value: production
